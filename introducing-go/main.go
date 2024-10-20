@@ -5,6 +5,7 @@ import (
 	"math"
 	"os"
 	"sync"
+	//"time"
 )
 
 const copyright = "Copyright(C) 2024 github.com/ArdeshirV, Licensed Under GPLv3+"
@@ -46,17 +47,22 @@ func ChapterFive() {
 
 	fmt.Println("Hello One")
 	var wg sync.WaitGroup
-	wg.Add(1)
-	counter := 0
-	go func() {
-		fmt.Println("Hello Inside")
-		for ; counter < 10; counter++ {
-			fmt.Printf("%v, ", counter)
-		}
-		wg.Done()
-	}()
-	wg.Wait()
+	wg.Add(10)
+	for i := 0; i < 10; i++ {
+		go func() {
+			fmt.Println("Hello Inside")
+			for counter := 0 ; counter < 10; counter++ {
+				fmt.Printf("%v, ", counter)
+			}
+			fmt.Println()
+			wg.Done()
+		}()
+	}
 	fmt.Println("Hello Two")
+	for i := 0; i < 10; i++ {
+		wg.Wait()
+	}
+	fmt.Println("Hello Three")
 	// ...
 }
 
