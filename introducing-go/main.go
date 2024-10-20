@@ -42,6 +42,8 @@ func ChapterFive() {
 	fmt.Println("<", res, ">")
 	myNameBytes := []byte(myName)
 	fmt.Printf("%q\n", myNameBytes)
+	// ...
+
 }
 
 func encode_xor(key, text string) (res string) {
@@ -50,7 +52,8 @@ func encode_xor(key, text string) (res string) {
 	for i, _ := range tempBytes {
 		tempBytes[i] ^= keyByte
 	}
-	return string(tempBytes)
+	res = string(tempBytes)
+	return res
 }
 
 func ChapterFour() {

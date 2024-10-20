@@ -1,5 +1,7 @@
+GO=$(HOME)/Documents/Apps/Golang/current/bin/go
+
 build/ir.ArdeshirV.Introducing-Go-linux-amd64: main.go
-	GOOS=linux GOARCH=amd64 go build -o build/ir.ArdeshirV.Introducing-Go-linux-amd64 .
+	GOOS=linux GOARCH=amd64 $(GO) build -o build/ir.ArdeshirV.Introducing-Go-linux-amd64 .
 
 run: build/ir.ArdeshirV.Introducing-Go-linux-amd64
 	build/ir.ArdeshirV.Introducing-Go-linux-amd64
