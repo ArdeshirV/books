@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"sync"
 )
 
 const copyright = "Copyright(C) 2024 github.com/ArdeshirV, Licensed Under GPLv3+"
@@ -42,8 +43,21 @@ func ChapterFive() {
 	fmt.Println("<", res, ">")
 	myNameBytes := []byte(myName)
 	fmt.Printf("%q\n", myNameBytes)
-	// ...
 
+	fmt.Println("Hello One")
+	var wg sync.WaitGroup
+	wg.Add(1)
+	counter := 0
+	go func() {
+		fmt.Println("Hello Inside")
+		for ; counter < 10; counter++ {
+			fmt.Printf("%v, ", counter)
+		}
+		wg.Done()
+	}()
+	wg.Wait()
+	fmt.Println("Hello Two")
+	// ...
 }
 
 func encode_xor(key, text string) (res string) {
