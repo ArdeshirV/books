@@ -37,7 +37,7 @@ func ChapterFive() {
 
 	fmt.Println("\nSlices:")
 	myName := "Ardeshir"
-	key := "2"
+	key := "3"
 	res := encode_xor(key, myName)
 	fmt.Println("<", res, ">")
 	res = encode_xor(key, res)
