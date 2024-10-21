@@ -47,11 +47,11 @@ func ChapterFive() {
 
 	fmt.Println("Hello One")
 	var wg sync.WaitGroup
-	wg.Add(10)
-	for i := 0; i < 10; i++ {
+	wg.Add(2)
+	for i := 0; i < 2; i++ {
 		go func() {
 			fmt.Println("Hello Inside")
-			for counter := 0 ; counter < 10; counter++ {
+			for counter := 0; counter < 10; counter++ {
 				fmt.Printf("%v, ", counter)
 			}
 			fmt.Println()
@@ -112,6 +112,7 @@ func ChapterFour() {
 		numberValue = "Seven"
 	case 8:
 		numberValue = "Eight"
+		fallthrough
 	case 9:
 		numberValue = "Nine"
 	default:
