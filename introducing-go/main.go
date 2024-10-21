@@ -64,6 +64,8 @@ func ChapterFive() {
 	}
 	fmt.Println("Hello Three")
 	// ...
+	res = fmt.Sprintf("%d + %d = %d", 10, 20, 30)
+	fmt.Println(res)
 }
 
 func encode_xor(key, text string) (res string) {
