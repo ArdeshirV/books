@@ -58,7 +58,6 @@ func ChapterFive() {
 			wg.Done()
 		}()
 	}
-
 	fmt.Println("Hello Two")
 	for i := 0; i < 10; i++ {
 		wg.Wait()
