@@ -21,7 +21,7 @@ func main() {
 
 func ChapterFivePart2() {
 	fmt.Println("Chapter five-part2:")
-	// TODO:
+
 }
 
 func ChapterFive() {
