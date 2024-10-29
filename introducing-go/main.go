@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"strconv"
+	"strings"
 	"sync"
-	//"time"
+	"unicode"
 )
 
 const copyright = "Copyright(C) 2024 github.com/ArdeshirV, Licensed Under GPLv3+"
@@ -21,7 +23,136 @@ func main() {
 
 func ChapterFivePart2() {
 	fmt.Println("Chapter five-part2:")
+	const n = 10
+	//fmt.Println(PerformFunc(fibonacci_1, n))
+	//fmt.Println(PerformFunc(fibonacci_2, n))
+	//fmt.Println(MyToUpperCase("Hello, World!"))
+	arr := []int{50, 10, 60, 30, 40, 1, 20}
+	arr = MergeSort(arr)
 
+	var sb strings.Builder
+	for i := 0; i < len(arr); i++ {
+		//sb.WriteString(fmt.Sprintf("arr[%v]=%v, ", i, arr[i]))
+		sb.WriteString("arr[")
+		sb.WriteString(strconv.Itoa(i))
+		sb.WriteString("]=")
+		sb.WriteString(strconv.Itoa(arr[i]))
+		sb.WriteString(", ")
+	}
+	output, _ := strings.CutSuffix(sb.String(), ", ")
+
+	target := 50
+	index := BinarySearch(arr, target)
+	output += fmt.Sprintf("\nindex of %v is %v\n", target, index)
+	fmt.Print(output)
+
+	fmt.Println(MyToUpperCase("Hello, World!"))
+
+	end := unicode.Avestan.R32[0].Hi
+	begin := unicode.Avestan.R32[0].Lo
+	for i := begin; i < end; i++ {
+		fmt.Print(string(rune(i)))
+	}
+	fmt.Println()
+}
+
+func MyToUpperCase(text string) string {
+	res := make([]rune, len(text))
+	for i, r := range text {
+		if r >= 'a' && r <= 'z' {
+			res[i] = r + ('a' - 'A')
+		} else {
+			res[i] = r
+		}
+	}
+	return string(res)
+}
+
+func Factorial(n int) (res int) {
+	if n <= 0 {
+		return 1
+	}
+	return n * Factorial(n-1)
+}
+
+func MergeSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
+	}
+	mid := len(arr) / 2
+	left := MergeSort(arr[:mid])
+	right := MergeSort(arr[mid:])
+	return merge(left, right)
+}
+
+func merge(a []int, b []int) []int {
+	res := []int{}
+	i, j := 0, 0
+	for i < len(a) && j < len(b) {
+		if a[i] < b[j] {
+			res = append(res, a[i])
+			i++
+		} else {
+			res = append(res, b[j])
+			j++
+		}
+	}
+	for ; i < len(a); i++ {
+		res = append(res, a[i])
+	}
+	for ; j < len(b); j++ {
+		res = append(res, b[j])
+	}
+	return res
+}
+
+func BinarySearch(arr []int, target int) int {
+	left, right := 0, len(arr)-1
+	for left <= right {
+		mid := (left + right) / 2
+		if arr[mid] > target {
+			right = mid - 1
+		} else if arr[mid] < target {
+			left = mid + 1
+		} else {
+			return mid
+		}
+	}
+	return -1
+}
+
+func PerformFunc(fib func(int) int, n int) string {
+	res := ""
+	for i := 0; i < n; i++ {
+		res += fmt.Sprintf("%v, ", fib(i))
+	}
+	res = res[:len(res)-2]
+	return res
+}
+
+func fibonacci_1(n int) int {
+	if n < 2 {
+		return 1
+	}
+	return fibonacci_1(n-1) + fibonacci_1(n-2)
+}
+
+func fibonacci_2(n int) int {
+	if n < 2 {
+		return 1
+	}
+
+	a, b, res := 0, 1, 1
+	for i := 1; i < n; i++ {
+		a = b
+		b = res
+		res = a + b
+	}
+	return res
+}
+
+func fibonacci_3(n int) int {
+	return 0
 }
 
 func ChapterFive() {
