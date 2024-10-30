@@ -10,6 +10,8 @@ import (
 	"unicode"
 )
 
+type binary int
+
 const copyright = "Copyright(C) 2024 github.com/ArdeshirV, Licensed Under GPLv3+"
 
 func main() {
@@ -46,7 +48,7 @@ func ChapterFivePart2() {
 	output += fmt.Sprintf("\nindex of %v is %v\n", target, index)
 	fmt.Print(output)
 
-	fmt.Println(MyToUpperCase("Hello, World!"))
+	fmt.Println(seniorToUpper("Hello, World!"))
 
 	end := unicode.Avestan.R32[0].Hi
 	begin := unicode.Avestan.R32[0].Lo
@@ -54,9 +56,38 @@ func ChapterFivePart2() {
 		fmt.Print(string(rune(i)))
 	}
 	fmt.Println()
+
+	fmt.Println(binary('A'))
+	fmt.Println(binary('a'))
 }
 
-func MyToUpperCase(text string) string {
+func (b binary) String() string {
+	return fmt.Sprintf("%b", b)
+}
+
+func seniorToUpper(text string) string {
+	res := make([]rune, len(text))
+	for i, r := range text {
+		if r >= 'a' && r <= 'z' {
+			res[i] = r | 32
+		} else {
+			res[i] = r
+		}
+	}
+	return string(res)
+}
+
+func juniorToUpper2(text string) string {
+	return strings.Map(func(r rune) rune {
+		if r >= 'a' && r <= 'z' {
+			return r - ('a' - 'A')
+		} else {
+			return r
+		}
+	}, text)
+}
+
+func juniorToUpper(text string) string {
 	res := make([]rune, len(text))
 	for i, r := range text {
 		if r >= 'a' && r <= 'z' {
