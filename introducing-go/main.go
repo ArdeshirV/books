@@ -128,12 +128,8 @@ func merge(a []int, b []int) []int {
 			j++
 		}
 	}
-	for ; i < len(a); i++ {
-		res = append(res, a[i])
-	}
-	for ; j < len(b); j++ {
-		res = append(res, b[j])
-	}
+	res = append(res, a[i:]...)
+	res = append(res, b[j:]...)
 	return res
 }
 
