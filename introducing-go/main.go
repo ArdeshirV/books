@@ -368,6 +368,23 @@ func ChapterTwo() {
 	fmt.Println("cmp1 =", cmp1)
 }
 
+type Stack struct {
+	items []int
+}
+
+func (s *Stack) Push(value int) {
+	s.items = append(s.items, value)
+}
+
+func (s *Stack) Pop() (item int) {
+	if len(s.items) == 0 {
+		return -1
+	}
+	item := s.items[len(s.items)-1]
+	s.items = s.items[:len(s.items)-1]
+	return item
+}
+
 func ChapterOne() {
 	fmt.Println("Chapter one:")
 	res, err := fmt.Printf("The Golang Programming Language\n")
