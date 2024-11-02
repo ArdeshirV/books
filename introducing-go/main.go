@@ -1,5 +1,7 @@
 package main
 
+// book - Introduce Go
+
 import (
 	"fmt"
 	"math"
