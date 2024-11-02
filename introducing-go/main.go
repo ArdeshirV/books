@@ -37,7 +37,7 @@ func ChapterFivePart3() {
 	slice1[9] = 99
 	slice1 = append(slice1, slice1...)
 	slice1[10] = 100
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 5; i++ {
 		slice1 = append(slice1, slice1...)
 	}
 	for i, value := range slice1 {
