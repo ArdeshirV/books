@@ -22,7 +22,13 @@ func main() {
 	//ChapterThree()
 	//ChapterFour()
 	//ChapterFive()
-	ChapterFivePart2()
+	//ChapterFivePart2()
+	ChapterFivePart3()
+}
+
+func ChapterFivePart3() {
+	fmt.Println("Chapter five-part3 (slices):")
+
 }
 
 func ChapterFivePart2() {
