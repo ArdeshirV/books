@@ -31,19 +31,25 @@ func ChapterFivePart3() {
 
 	slice1 := make([]int, 10, 100)
 	for i, value := range slice1 {
-		fmt.Printf("[%d]=%d ", i, value)
+		slice1[i] = value * 3
 	}
-	fmt.Println()
 	slice1[9] = 99
 	slice1 = append(slice1, slice1...)
 	slice1[10] = 100
-	for i := 0; i < 5; i++ {
-		slice1 = append(slice1, slice1...)
-	}
+	//slice2 := make([]int, len(slice1))
+	//copy(slice2, slice1)
+	slice2 := slice1[:]
+	slice1 = slice2
 	for i, value := range slice1 {
 		fmt.Printf("[%d]=%d ", i, value)
 	}
-	fmt.Println()
+	fmt.Print("\n\n")
+	slice1[4] = 33
+	for i, value := range slice2 {
+		fmt.Printf("[%d]=%d ", i, value)
+	}
+	fmt.Println() //
+
 }
 
 func ChapterFivePart2() {
