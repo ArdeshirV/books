@@ -9,6 +9,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 	"unicode"
 )
 
@@ -23,7 +24,17 @@ func main() {
 	//ChapterFour()
 	//ChapterFive()
 	//ChapterFivePart2()
-	ChapterFivePart3()
+	//ChapterFivePart3()
+	ChapterFivePart4()
+}
+
+func ChapterFivePart4() {
+	fmt.Println("Chapter five-part3 (slices):")
+}
+
+func argumentEvaluator(text string) string {
+	fmt.Println(text)
+	return "Hello " + text
 }
 
 func ChapterFivePart3() {
@@ -50,6 +61,7 @@ func ChapterFivePart3() {
 	}
 	fmt.Println()
 
+	fmt.Println("Now:", time.Now())
 }
 
 func ChapterFivePart2() {
