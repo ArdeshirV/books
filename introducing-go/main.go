@@ -48,7 +48,7 @@ func ChapterFivePart3() {
 	for i, value := range slice2 {
 		fmt.Printf("[%d]=%d ", i, value)
 	}
-	fmt.Println() //
+	fmt.Println()
 
 }
 
