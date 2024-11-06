@@ -32,7 +32,8 @@ func main() {
 		//fmt.Scanf("%s", &tmp)
 	}()
 	PrintTitle()
-	fmt.Printf("    %sThe Go Programming Language %sʕ◔ϖ◔ʔ%s\n\n", BMAGENTA, BGREEN, TEAL)
+	title := "    %sThe Go Programming Language %sʕ◔ϖ◔ʔ%s\n\n"
+	fmt.Printf(title, BMAGENTA, BGREEN, TEAL)
 	chapterOne()
 }
 
