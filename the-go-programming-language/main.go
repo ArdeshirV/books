@@ -32,7 +32,7 @@ func main() {
 		//fmt.Scanf("%s", &tmp)
 	}()
 	PrintTitle()
-	title := "    %sThe Go Programming Language %sʕ◔ϖ◔ʔ%s\n\n"
+	title := "\n    %sThe Go Programming Language %sʕ◔ϖ◔ʔ%s\n\n"
 	fmt.Printf(title, BMAGENTA, BGREEN, TEAL)
 	chapterOne()
 }
@@ -54,8 +54,8 @@ func PrintTitle() {
 }
 
 func FormatTitle(strAppName, strAppDescription, strVersion string, blnColor bool) string {
-	NoneColored := "%v - %v Version %v"
-	Colored := "\033[1;33m%v\033[0;33m - %v \033[1;33mVersion %v\033[0m"
+	NoneColored := "%v - %v Version %v\n"
+	Colored := "\033[1;33m%v\033[0;33m - %v \033[1;33mVersion %v\033[0m\n"
 	var strFormat string
 	if blnColor {
 		strFormat = Colored
