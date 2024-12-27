@@ -29,11 +29,11 @@ func main() {
 }
 
 func ChapterFivePart4() {
-	fmt.Println("Chapter five-part3 (slices):")
+	fmt.Println("\033[1;27mChapter five-part3 (slices):\033[0m")
+	fmt.Println(argumentEvaluator("Ardeshir"))
 }
 
 func argumentEvaluator(text string) string {
-	fmt.Println(text)
 	return "Hello " + text
 }
 
