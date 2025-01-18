@@ -34,6 +34,8 @@ func ChapterFivePart4() {
 	fmt.Println(argumentEvaluator("Ardeshir"))
 	fmt.Println("Hello World")
 	fmt.Println(100 / 3)
+	fmt.Println(strconv.Itoa((int)("Hello, World"[3])))
+	fmt.Println(0b11111111)
 
 }
 
