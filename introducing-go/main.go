@@ -26,11 +26,15 @@ func main() {
 	//ChapterFivePart2()
 	//ChapterFivePart3()
 	ChapterFivePart4()
+
 }
 
 func ChapterFivePart4() {
 	fmt.Println("\033[1;27mChapter five-part3 (slices):\033[0m")
 	fmt.Println(argumentEvaluator("Ardeshir"))
+	fmt.Println("Hello World")
+	fmt.Println(100 / 3)
+
 }
 
 func argumentEvaluator(text string) string {
