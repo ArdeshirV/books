@@ -25,8 +25,63 @@ func main() {
 	//ChapterFive()
 	//ChapterFivePart2()
 	//ChapterFivePart3()
-	ChapterFivePart4()
+	//ChapterFivePart4()
+	//FizzBuzz(1, 30)
+	//FizzBuzzV2(1, 30)
+	Chapter5()
+}
 
+func Chapter5() {
+	var x [5]int
+	x[2] = 3
+	fmt.Println(x)
+}
+
+func FizzBuzzV2(begin, end int) {
+	fmt.Printf("FizzBuzz from %v to %v:\n", begin, end)
+
+	result := ""
+	const Number, Fizz, Buzz, FizzBuzz = 0, 1, 2, 3
+	arr := [4]string{"", "Fizz", "Buzz", "FizzBuzz"}
+
+	for i := begin; i <= end; i++ {
+		logic := 0
+		if i%3 == 0 {
+			logic = 1
+		}
+
+		if i%5 == 0 {
+			logic += 2
+		}
+
+		if logic == 0 {
+			result += strconv.Itoa(i)
+		} else {
+			result += arr[logic]
+		}
+		result += ", "
+	}
+	result = result[:len(result)-2]
+	fmt.Println(result)
+}
+
+func FizzBuzz(begin, end int) {
+	fmt.Printf("FizzBuzz from %v to %v:", begin, end)
+	result := ""
+	for i := begin; i <= end; i++ {
+		if i%15 == 0 {
+			result += "FizzBuzz"
+		} else if i%5 == 0 {
+			result += "Buzz"
+		} else if i%3 == 0 {
+			result += "Fizz"
+		} else {
+			result += strconv.Itoa(i)
+		}
+		result += ", "
+	}
+	result = result[:len(result)-2]
+	fmt.Println(result)
 }
 
 func ChapterFivePart4() {
@@ -36,7 +91,57 @@ func ChapterFivePart4() {
 	fmt.Println(100 / 3)
 	fmt.Println(strconv.Itoa((int)("Hello, World"[3])))
 	fmt.Println(0b11111111)
+	var x, y int
+	x, y = 10, 20
+	x += y
+	fmt.Println(x, y)
 
+	fmt.Println("Enter fahrenheit: ")
+	var fahrenheit float64
+	//fmt.Scanf("%f", &fahrenheit)
+	fahrenheit = 123
+	const mul float64 = 5.0 / 9.0
+	centigrade := (fahrenheit - 32) * mul
+	fmt.Printf("Celsius: %.2f\n", centigrade)
+
+	const f2m float64 = 0.3048
+	var feet, meters float64
+	feet = 170.0
+	meters = feet * f2m
+	fmt.Printf("meters: %.3f\n", meters)
+
+	i := 0
+	for i < 10 {
+		fmt.Print(i, " ")
+		i++
+	}
+	fmt.Println()
+
+	for i, j := 10, 20; i < j; i, j = i+1, j-1 {
+		fmt.Print(i, j, " - ")
+	}
+	fmt.Println()
+
+	i = 99
+	i--
+	if i%2 == 0 {
+		fmt.Printf("%v %% %v = 0\n", i, 2)
+	}
+
+	i = 0
+	switch i {
+	case 0:
+		fmt.Println("Zero")
+		fallthrough
+	case 1:
+		fmt.Println("One")
+	case 2:
+		fmt.Println("Two")
+	case 3:
+		fmt.Println("Three")
+	default:
+		fmt.Println("Unknown")
+	}
 }
 
 func argumentEvaluator(text string) string {
