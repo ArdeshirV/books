@@ -47,7 +47,75 @@ func Chapter6() {
 	}
 	fmt.Println()
 
-	//
+	arrNums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	sum := Sum(arrNums)
+	fmt.Println(sum)
+
+	v, b := Half(1)
+	fmt.Println(v, b)
+	v, b = Half(2)
+	fmt.Println(v, b)
+
+	fmt.Println(FindMax(arrNums))
+
+	odd := makeOddGenerator()
+	for i := 0; i < 10; i++ {
+		fmt.Print(odd(), " ")
+	}
+	fmt.Println()
+
+	for i := 1; i < 10; i++ {
+		fmt.Print(fib(i), " ")
+	}
+	fmt.Println()
+
+	a1, b1 := 10, 20
+	fmt.Println(a1, b1)
+	swap(&a1, &b1)
+	fmt.Println(a1, b1)
+	a1, b1 = b1, a1
+	fmt.Println(a1, b1)
+}
+
+func swap(a, b *int) {
+	*a, *b = *b, *a
+}
+
+func fib(n int) int {
+	if n <= 2 {
+		return 1
+	}
+	return fib(n-1) + fib(n-2)
+}
+
+func makeOddGenerator() func() int {
+	number := 1
+	return func() int {
+		number += 2
+		return number
+	}
+}
+
+func FindMax(list []int) int {
+	result := 0
+	for _, value := range list {
+		if value > result {
+			result = value
+		}
+	}
+	return result
+}
+
+func Half(n int) (int, bool) {
+	return n / 2, n%2 == 0
+}
+
+func Sum(arr []int) (total int) {
+	total = 0
+	for _, value := range arr {
+		total += value
+	}
+	return total
 }
 
 func Chapter5() {
