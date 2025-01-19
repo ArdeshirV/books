@@ -28,13 +28,59 @@ func main() {
 	//ChapterFivePart4()
 	//FizzBuzz(1, 30)
 	//FizzBuzzV2(1, 30)
-	Chapter5()
+	//Chapter5()
+	Chapter6()
+}
+
+func makeEvenGenerator() func() uint {
+	i := uint(0)
+	return func() uint {
+		i += 2
+		return i
+	}
+}
+
+func Chapter6() {
+	nextEven := makeEvenGenerator()
+	for i := 0; i < 10; i++ {
+		fmt.Print(nextEven(), " ")
+	}
+	fmt.Println()
+
+	//
 }
 
 func Chapter5() {
 	var x [5]int
 	x[2] = 3
 	fmt.Println(x)
+
+	y := make([]float64, 10, 100)
+	for i := 0; i < 200; i++ {
+		y = append(y, float64(i))
+	}
+	for _, value := range y {
+		fmt.Print(value, ", ")
+	}
+	fmt.Println()
+
+	arr1 := []int{1, 2, 3}
+	arr2 := []int{10, 10, 10}
+	arr2[1] = 999
+	copy(arr2, arr1)
+	arr2[0] = 200
+	arr2[2] = -50
+	fmt.Println(arr1)
+
+	m := make(map[string]int, 2)
+	m["one"] = 1
+	m["two"] = 2
+	delete(m, "one")
+	fmt.Println(m)
+	key := "two"
+	if value, ok := m[key]; ok {
+		fmt.Printf("[%v] = %v\n", key, value)
+	}
 }
 
 func FizzBuzzV2(begin, end int) {
