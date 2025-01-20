@@ -48,7 +48,7 @@ func Chapter6() {
 	fmt.Println()
 
 	arrNums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	sum := Sum(arrNums)
+	sum := Sum(arrNums...)
 	fmt.Println(sum)
 
 	v, b := Half(1)
@@ -110,7 +110,7 @@ func Half(n int) (int, bool) {
 	return n / 2, n%2 == 0
 }
 
-func Sum(arr []int) (total int) {
+func Sum(arr ...int) (total int) {
 	total = 0
 	for _, value := range arr {
 		total += value
