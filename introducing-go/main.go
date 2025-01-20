@@ -4,8 +4,10 @@ package main
 
 import (
 	"fmt"
+	"io/fs"
 	"math"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"sync"
@@ -97,6 +99,11 @@ func Chapter8Packages() {
 	for _, fi := range filesInDir {
 		fmt.Println(fi.Name())
 	}
+
+	filepath.Walk(".", func(path string, info fs.FileInfo, err error) error {
+		fmt.Println(path)
+		return nil
+	})
 }
 
 func print(args ...any) {
