@@ -44,7 +44,59 @@ func Chapter8Packages() {
 	fmt.Println(strings.Repeat("Shir", 10))
 	fmt.Println(strings.Fields("Ardeshir is   a computer    programmer.  "))
 	fmt.Println(strings.IndexByte(s1, 66))
-	strings.ToTitle("Ardeshir Varmazyahr")
+	fmt.Println(strings.ToTitle("Ardeshir Varmazyahr"))
+	fmt.Println(strings.NewReader(s1))
+
+	file, err := os.Open("/home/asohishn/.bashrc")
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	stat, err := file.Stat()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(
+		"stat.IsDir()", stat.IsDir(), "\n",
+		"stat.Mode()", stat.Mode(), "\n",
+		"stat.ModTime()", stat.ModTime(), "\n",
+		"stat.Name()", stat.Name(), "\n",
+		"stat.Size()", stat.Size(), "\n",
+		"stat.Sys()", stat.Sys(), "\n",
+	)
+
+	buff := make([]byte, stat.Size())
+	_, err = file.Read(buff)
+	if err != nil {
+		panic(err)
+	}
+
+	bashrc := string(buff)
+	fmt.Println(bashrc[0:200])
+
+	of, err := os.Create("temp.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer of.Close()
+	of.WriteString(bashrc[:500])
+
+	dir, err := os.Open(".")
+	if err != nil {
+		panic(err)
+	}
+	defer dir.Close()
+
+	filesInDir, err := dir.ReadDir(-1)
+	if err != nil {
+		panic(err)
+	}
+
+	for _, fi := range filesInDir {
+		fmt.Println(fi.Name())
+	}
 }
 
 func print(args ...any) {
