@@ -29,7 +29,60 @@ func main() {
 	//FizzBuzz(1, 30)
 	//FizzBuzzV2(1, 30)
 	//Chapter5()
-	Chapter6()
+	//Chapter6()
+	//Chapter7()
+	Chapter8Packages()
+}
+
+func Chapter8Packages() {
+	fmt.Println("Chapter 8 - Packages")
+	s1, s2 := "Ardeshir", "shir"
+
+}
+
+func Chapter7() {
+	var s Shape
+	fmt.Printf("Type of s: %T\n", s)
+	s = &Rectangel{TopLeft: Point{10, 10}, BottomRight: Point{30, 30}}
+	fmt.Println(s.Area())
+	var sq Square
+	s = &sq
+	fmt.Println(s, s.Area())
+	fmt.Println(sq, sq.Area())
+	fmt.Printf("Type of s: %T\n", s)
+}
+
+type Square struct {
+	Rectangel
+}
+
+func (this *Square) Area() float64 {
+	return 0
+}
+
+func (this *Square) Perimeter() float64 {
+	return 4321.0
+}
+
+type Shape interface {
+	Area() float64
+	Perimeter() float64
+}
+
+type Point struct {
+	X, Y float64
+}
+
+type Rectangel struct {
+	TopLeft, BottomRight Point
+}
+
+func (s *Rectangel) Area() float64 {
+	return 100.0
+}
+
+func (this *Rectangel) Perimeter() float64 {
+	return 1234
 }
 
 func makeEvenGenerator() func() uint {
