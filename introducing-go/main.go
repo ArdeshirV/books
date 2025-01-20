@@ -37,7 +37,18 @@ func main() {
 func Chapter8Packages() {
 	fmt.Println("Chapter 8 - Packages")
 	s1, s2 := "Ardeshir", "shir"
+	fmt.Println(s1, s2)
+	fmt.Println(strings.EqualFold("Shir", "sHiR"))
+	print(strings.Count(s1, "s"))
+	fmt.Println(strings.Join([]string{s1, s2}, "x"))
+	fmt.Println(strings.Repeat("Shir", 10))
+	fmt.Println(strings.Fields("Ardeshir is   a computer    programmer.  "))
+	fmt.Println(strings.IndexByte(s1, 66))
+	strings.ToTitle("Ardeshir Varmazyahr")
+}
 
+func print(args ...any) {
+	fmt.Println(args...)
 }
 
 func Chapter7() {
