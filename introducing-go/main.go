@@ -38,7 +38,7 @@ func main() {
 
 func Chapter8Packages() {
 	fmt.Println("Chapter 8 - Packages")
-	s1, s2 := "Ardeshir", "shir"
+	s1, s2 := "Ardeshir اردشیر", "shir"
 	fmt.Println(s1, s2)
 	fmt.Println(strings.EqualFold("Shir", "sHiR"))
 	print(strings.Count(s1, "s"))
@@ -104,6 +104,66 @@ func Chapter8Packages() {
 		fmt.Println(path)
 		return nil
 	})
+
+	profileFileName := os.Getenv("HOME") + "/.profile"
+	profile, err := ReadFromFile(profileFileName)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(profileFileName)
+		fmt.Println(profile)
+	}
+
+	fmt.Printf("toUpper(%s) = \"%s\"\n", s1, toUpper(s1))
+	fmt.Printf("toLower(%s) = \"%s\"\n", s1, toLower(s1))
+}
+
+func toUpper(input string) string {
+	var b strings.Builder
+	const distance = 'a' - 'A'
+	for _, ch := range input {
+		if ch >= 'a' && ch <= 'z' {
+			b.WriteRune(ch - distance)
+		} else {
+			b.WriteRune(ch)
+		}
+	}
+	return b.String()
+}
+
+func toLower(input string) string {
+	var b strings.Builder
+	const distance = 'a' - 'A'
+	for _, ch := range input {
+		if ch >= 'A' && ch <= 'Z' {
+			b.WriteRune(ch | distance)
+		} else {
+			b.WriteRune(ch)
+		}
+	}
+	return b.String()
+}
+
+func ReadFromFile(fileName string) (contents string, err error) {
+	fileHandle, err := os.Open(fileName)
+	if err != nil {
+		return "", err
+	}
+	defer fileHandle.Close()
+
+	stat, err := fileHandle.Stat()
+	if err != nil {
+		return "", err
+	}
+
+	buff := make([]byte, stat.Size())
+	_, err = fileHandle.Read(buff)
+	if err != nil {
+		return "", err
+	}
+	contents = string(buff)
+
+	return contents, nil
 }
 
 func print(args ...any) {
