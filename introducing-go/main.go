@@ -3,11 +3,19 @@ package main
 // book - Introduce Go
 
 import (
+	"container/list"
+	"encoding/gob"
 	"fmt"
+	"hash/crc32"
+	"io"
 	"io/fs"
 	"math"
+	"net"
+	"net/http"
+	"net/rpc"
 	"os"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 	"sync"
@@ -33,7 +41,131 @@ func main() {
 	//Chapter5()
 	//Chapter6()
 	//Chapter7()
-	Chapter8Packages()
+	//Chapter8Packages()
+	//Chapter8PackagesPart2()
+	//Chapter8PackagesPart3HttpServer()
+	Chapter8PackagesPart4RPC()
+}
+
+func Chapter8PackagesPart4RPC() {
+	go server()
+	go client()
+	var input string
+	fmt.Scanln(&input)
+	os.Exit(0)
+}
+
+type Server struct{}
+
+func (this *Server) Negate(name string, reply *string) error {
+	*reply = "Hello dear " + name
+	return nil
+}
+
+func server() {
+	rpc.Register(new(Server))
+	ln, err := net.Listen("tcp", ":9999")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	for {
+		c, err := ln.Accept()
+		if err != nil {
+			continue
+		}
+		go rpc.ServeConn(c)
+	}
+}
+
+func client() {
+	c, err := rpc.Dial("tcp", "127.0.0.1:9999")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	var result string
+	name := "Ardeshir"
+	err = c.Call("Server.Negate", name, &result)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Server.Negate(", name, ") =", result)
+	}
+}
+
+func Chapter8PackagesPart3HttpServer() {
+	http.HandleFunc("/golang", golangHandler)
+	http.ListenAndServe(":9000", nil)
+}
+
+func golangHandler(res http.ResponseWriter, req *http.Request) {
+	res.Header().Set(
+		"Content-Type",
+		"text/html",
+	)
+	io.WriteString(
+		res,
+		`<DOCTYPE html>
+		<html>
+			<head>
+				<title>The Golang</title>
+			</head>
+			<body>
+				The Golang Programming Language
+			</body>
+		</html>
+		`,
+	)
+}
+
+func Chapter8PackagesPart2() {
+	go server()
+	go client()
+	var input string
+	fmt.Scanln(&input)
+}
+
+func serverX() {
+	ln, err := net.Listen("tcp", ":9999")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	for {
+		c, err := ln.Accept()
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		go handleServerConnection(c)
+	}
+}
+
+func handleServerConnection(c net.Conn) {
+	var msg string
+	err := gob.NewDecoder(c).Decode(&msg)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Received:", msg)
+	}
+	c.Close()
+}
+
+func clientX() {
+	c, err := net.Dial("tcp", "127.0.0.1:9999")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	msg := "The Golang Programming Language"
+	fmt.Println("Sending", msg)
+	err = gob.NewEncoder(c).Encode(msg)
+	if err != nil {
+		fmt.Println(err)
+	}
+	c.Close()
 }
 
 func Chapter8Packages() {
@@ -121,6 +253,66 @@ func Chapter8Packages() {
 		"I love you!"); err != nil {
 		fmt.Println(err)
 	}
+
+	listTest := list.New()
+	listTest.PushBack(10)
+	listTest.PushBack(20)
+	listTest.PushBack(30)
+	fmt.Println(listTest)
+	for element := listTest.Front(); element != nil; element = element.Next() {
+		fmt.Println(element.Value)
+	}
+
+	names := []Name{
+		{FirstName: "Mohammad", LastName: "Aghaee"},
+		{FirstName: "Ardeshir", LastName: "Varmazyahr"},
+	}
+	data := Names(names)
+	fmt.Println(data)
+	sort.Sort(data)
+	fmt.Println(data)
+
+	name := Name{FirstName: "Abo", LastName: "Sofhiyahn"}
+	fmt.Println(name)
+	pname := &name
+	fmt.Println(pname)
+
+	h := crc32.NewIEEE()
+	strName := fmt.Sprint(data[0])
+	fmt.Println(strName)
+	h.Write([]byte(strName))
+	v32 := h.Sum32()
+	fmt.Println(v32)
+
+	//sha := crypto.Hash.New(crypto.MD4)
+	//sha.Write([]byte("Ardeshir Varmazyahr"))
+	//b := sha.Sum([]byte{})
+	//fmt.Println(b)
+}
+
+type Name struct {
+	FirstName, LastName string
+}
+
+func (this Name) String() string {
+	return fmt.Sprintf("[%s, %s]", this.FirstName, this.LastName)
+}
+
+type Names []Name
+
+func (this Names) Len() int {
+	return len(this)
+}
+
+func (this Names) Less(first, second int) bool {
+	return this[first].FirstName < this[second].FirstName
+}
+
+func (this Names) Swap(left, right int) {
+	this[left].FirstName, this[right].FirstName =
+		this[right].FirstName, this[left].FirstName
+	this[left].LastName, this[right].LastName =
+		this[right].LastName, this[left].LastName
 }
 
 func WriteToFile(fileName, contents string) error {
