@@ -116,6 +116,25 @@ func Chapter8Packages() {
 
 	fmt.Printf("toUpper(%s) = \"%s\"\n", s1, toUpper(s1))
 	fmt.Printf("toLower(%s) = \"%s\"\n", s1, toLower(s1))
+
+	if err = WriteToFile("/home/asohishn/Documents/Temp/Out.txt",
+		"I love you!"); err != nil {
+		fmt.Println(err)
+	}
+}
+
+func WriteToFile(fileName, contents string) error {
+	fileHandle, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer fileHandle.Close()
+
+	if _, err = fileHandle.WriteString(contents); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func toUpper(input string) string {
