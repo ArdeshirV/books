@@ -21,6 +21,8 @@ import (
 	"sync"
 	"time"
 	"unicode"
+
+	"ir.ArdeshirV.Introducing-Go/mypackage"
 )
 
 type binary int
@@ -44,7 +46,12 @@ func main() {
 	//Chapter8Packages()
 	//Chapter8PackagesPart2()
 	//Chapter8PackagesPart3HttpServer()
-	Chapter8PackagesPart4RPC()
+	//Chapter8PackagesPart4RPC()
+	Chapter8PackagesPart5()
+}
+
+func Chapter8PackagesPart5() {
+	mypackage.Display("Hello from a mypackage!")
 }
 
 func Chapter8PackagesPart4RPC() {
