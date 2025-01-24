@@ -52,6 +52,7 @@ func main() {
 
 func Chapter8PackagesPart5() {
 	mypackage.Display("Hello from a mypackage!")
+	// TODO: Your new code goes here
 }
 
 func Chapter8PackagesPart4RPC() {
