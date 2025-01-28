@@ -1,8 +1,9 @@
 GO=$(HOME)/Documents/Apps/Golang/current/bin/go
 ANDROID_CC_ROOT=$(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/linux-x86_64/bin
 
-run: build/ir.ArdeshirV.Introducing-Go-linux-amd64
-	build/ir.ArdeshirV.Introducing-Go-linux-amd64
+run: #build/ir.ArdeshirV.Introducing-Go-linux-amd64
+	go run .
+#	build/ir.ArdeshirV.Introducing-Go-linux-amd64
 
 build/ir.ArdeshirV.Introducing-Go-linux-amd64: main.go
 	GOOS=linux GOARCH=amd64 $(GO) build -o build/ir.ArdeshirV.Introducing-Go-linux-amd64 .
