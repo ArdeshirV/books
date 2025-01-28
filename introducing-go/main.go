@@ -52,7 +52,6 @@ func main() {
 
 func Chapter8PackagesPart5() {
 	mypackage.Display("Hello from a mypackage!")
-	// TODO: Your new code goes here
 	max := mypackage.Max([]float64{10, 20, 40, 60, 90, 30})
 	mypackage.Display(fmt.Sprintf("max:%f\n", max))
 }
