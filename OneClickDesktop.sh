@@ -29,8 +29,6 @@ GUACAMOLE_VERSION="1.2.0"
 OS_CHECK_ENABLED=ON
 
 
-
-
 #########################################################################
 #    Functions start here.                                              #
 #    Do not change anything below unless you know what you are doing.   #
