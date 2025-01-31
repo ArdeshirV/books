@@ -1,6 +1,9 @@
 package mypackage
 
-import "fmt"
+import (
+	"fmt"
+	"errors"
+)
 
 func printMessage(message string) {
 	fmt.Println(message)
@@ -8,6 +11,20 @@ func printMessage(message string) {
 
 func Display(msg string) {
 	printMessage(msg)
+}
+
+func Average(args []float64) (float64, error) {
+	if args == nil {
+		return 0.0, errors.New("The Average(args []float64) func failed with nil arguments")
+	}
+	if len(args) <= 0 {
+		return 0.0, nil
+	}
+	res := 0.0
+	for _, f := range args {
+		res += f
+	}
+	return res / float64(len(args)), nil
 }
 
 // Returns minimum of number slice and returns zero if the slice is empty
