@@ -54,7 +54,12 @@ func main() {
 
 func Chapter10Goroutines() {
 	//stepOne()
-	stepTwo()
+	//stepTwo()
+	stepThree()
+}
+
+func stepThree() {
+	fmt.Println("Chapter 10 - step 3")
 }
 
 func stepTwo() {
