@@ -10,6 +10,7 @@ import (
 	"io"
 	"io/fs"
 	"math"
+	"math/rand"
 	"net"
 	"net/http"
 	"net/rpc"
@@ -47,7 +48,58 @@ func main() {
 	//Chapter8PackagesPart2()
 	//Chapter8PackagesPart3HttpServer()
 	//Chapter8PackagesPart4RPC()
-	Chapter8PackagesPart5()
+	//Chapter8PackagesPart5()
+	Chapter10Goroutines()
+}
+
+func Chapter10Goroutines() {
+	//stepOne()
+	stepTwo()
+}
+
+func stepTwo() {
+	var c chan string = make(chan string, 10)
+	go pinger(c)
+	go ponger(c)
+	go printer(c)
+	var input string
+	fmt.Scanln(&input)
+}
+
+func printer(c <-chan string) {
+	for {
+		msg := <-c
+		fmt.Println(msg)
+		time.Sleep(time.Second * 1)
+	}
+}
+
+func ponger(c chan<- string) {
+	for i := 0; ; i++ {
+		c <- "pong"
+	}
+}
+
+func pinger(c chan<- string) {
+	for i := 0; ; i++ {
+		c <- "ping"
+	}
+}
+
+func stepOne() {
+	for i := 0; i < 10; i++ {
+		go goF(i)
+	}
+	var input string
+	fmt.Scanln(&input)
+}
+
+func goF(n int) {
+	for i := 0; i < 10; i++ {
+		fmt.Println(n, ":", i)
+		amt := time.Duration(rand.Intn(250))
+		time.Sleep(time.Millisecond * amt)
+	}
 }
 
 func Chapter8PackagesPart5() {
