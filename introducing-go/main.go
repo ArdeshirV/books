@@ -55,11 +55,18 @@ func main() {
 func Chapter10Goroutines() {
 	//stepOne()
 	//stepTwo()
-	stepThree()
+	//stepThree()
+	stepFour()
+}
+
+func stepFour() {
+	fmt.Printf("\033[1;%dmChapter 10 - step 3\033[0;0m\n", 36)
 }
 
 func stepThree() {
-	fmt.Println("Chapter 10 - step 3")
+	for i := 0; i < 55; i++ {
+		fmt.Printf("%d:\033[1;%dmChapter 10 - step 3\033[0;0m\n", i, i)
+	}
 }
 
 func stepTwo() {
