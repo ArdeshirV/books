@@ -61,6 +61,40 @@ func Chapter10Goroutines() {
 
 func stepFour() {
 	fmt.Printf("\033[1;%dmChapter 10 - step 3\033[0;0m\n", 36)
+	
+	c1 := make(chan string)
+	c2 := make(chan string)
+	
+	go func() {
+		for {
+			c1 <- "from 1"
+			time.Sleep(time.Second * 2)
+		}
+	}()
+	
+	go func() {
+		for {
+			c2 <- "from 2"
+			time.Sleep(time.Second * 3)
+		}
+	}()
+	
+	go func() {
+		for {
+			select {
+				case msg:= <- c1:
+					fmt.Println(msg)
+				case msg := <- c2:
+					fmt.Println(msg)
+				case <- time.After(time.Second * 1):
+					fmt.Println("timeout")
+				default:
+			}
+		}
+	}()
+	
+	var input string
+	fmt.Scanln(&input)
 }
 
 func stepThree() {
