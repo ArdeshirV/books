@@ -9,6 +9,7 @@ import (
 	"hash/crc32"
 	"io"
 	"io/fs"
+	"io/ioutil"
 	"math"
 	"math/rand"
 	"net"
@@ -56,43 +57,92 @@ func Chapter10Goroutines() {
 	//stepOne()
 	//stepTwo()
 	//stepThree()
-	stepFour()
+	//stepFour()
+	stepFive()
+}
+
+func stepFive() {
+	type HomePageSize struct {
+		URL  string
+		Size int
+	}
+
+	urls := [4]string{
+		"http://www.apple.com",
+		"http://www.amazon.com",
+		"http://www.google.com",
+		"http://www.microsoft.com",
+	}
+	fmt.Println(urls)
+
+	results := make(chan HomePageSize)
+	for _, url := range urls {
+		go func(url string) {
+			res, err := http.Get(url)
+			if err != nil {
+				panic(err)
+			}
+			defer res.Body.Close()
+
+			bs, err := ioutil.ReadAll(res.Body)
+			if err != nil {
+				panic(err)
+			}
+
+			results <- HomePageSize{
+				URL:  url,
+				Size: len(bs),
+			}
+		}(url)
+	}
+
+	var biggest HomePageSize
+	for range urls {
+		result := <-results
+		if result.Size > biggest.Size {
+			biggest = result
+		}
+	}
+	fmt.Println("The biggest home page:", biggest.URL)
+
+	var input string
+	fmt.Scanln(&input)
 }
 
 func stepFour() {
 	fmt.Printf("\033[1;%dmChapter 10 - step 3\033[0;0m\n", 36)
-	
+
 	c1 := make(chan string)
 	c2 := make(chan string)
-	
+
 	go func() {
 		for {
 			c1 <- "from 1"
 			time.Sleep(time.Second * 2)
 		}
 	}()
-	
+
 	go func() {
 		for {
 			c2 <- "from 2"
 			time.Sleep(time.Second * 3)
 		}
 	}()
-	
+
 	go func() {
 		for {
 			select {
-				case msg:= <- c1:
-					fmt.Println(msg)
-				case msg := <- c2:
-					fmt.Println(msg)
-				case <- time.After(time.Second * 1):
-					fmt.Println("timeout")
-				default:
+			case msg := <-c1:
+				fmt.Println(msg)
+			case msg := <-c2:
+				fmt.Println(msg)
+			case <-time.After(time.Second * 1):
+				fmt.Println("timeout")
+			default:
 			}
 		}
 	}()
-	
+
 	var input string
 	fmt.Scanln(&input)
 }
