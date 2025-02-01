@@ -271,8 +271,7 @@ func Chapter8Packages() {
 		"stat.ModTime()", stat.ModTime(), "\n",
 		"stat.Name()", stat.Name(), "\n",
 		"stat.Size()", stat.Size(), "\n",
-		"stat.Sys()", stat.Sys(), "\n",
-	)
+		"stat.Sys()", stat.Sys(), "\n")
 
 	buff := make([]byte, stat.Size())
 	_, err = file.Read(buff)
