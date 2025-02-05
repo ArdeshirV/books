@@ -43,8 +43,8 @@ func chapterOne() {
 
 func PrintTitle() {
 	blnColor := true
-	strAppName := "Go.go"
-	strAppYear := "2023"
+	strAppName := "the-go-programming-language"
+	strAppYear := "2024"
 	strAppDescription := "The Go Programming Language"
 	strVersion := "1.0"
 	strLicense := "GPLv3+"

@@ -24,7 +24,7 @@ import (
 	"time"
 	"unicode"
 
-	"ir.ArdeshirV.Introducing-Go/mypackage"
+	"github.com/ArdeshirV/books/introducing-go/mypackage"
 )
 
 type binary int
@@ -1214,3 +1214,4 @@ func ChapterOne() {
 	os.Exit(0)
 	fmt.Println("You won't see this line never")
 }
+
