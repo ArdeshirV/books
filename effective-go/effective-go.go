@@ -27,12 +27,12 @@ const (
 
 func main() {
 	defer func() {
-		//var tmp string
 		fmt.Printf("%s\nPress enter to quit.\n", NORMAL)
+		//var tmp string
 		//fmt.Scanf("%s", &tmp)
 	}()
 	PrintTitle()
-	title := "\n    %sEffective Go %sʕ◔ϖ◔ʔ%s\n\n"
+	const title = "\n    %sEffective Go %sʕ◔ϖ◔ʔ%s\n\n"
 	fmt.Printf(title, BMAGENTA, BGREEN, TEAL)
 	chapterOne()
 }
@@ -53,7 +53,8 @@ func PrintTitle() {
 	fmt.Print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
 }
 
-func FormatTitle(strAppName, strAppDescription, strVersion string, blnColor bool) string {
+func FormatTitle(strAppName, strAppDescription, strVersion string,
+	blnColor bool) string {
 	NoneColored := "%v - %v Version %v\n"
 	Colored := "\033[1;33m%v\033[0;33m - %v \033[1;33mVersion %v\033[0m\n"
 	var strFormat string
@@ -65,7 +66,8 @@ func FormatTitle(strAppName, strAppDescription, strVersion string, blnColor bool
 	return fmt.Sprintf(strFormat, strAppName, strAppDescription, strVersion)
 }
 
-func FormatCopyright(strAppYear, strCopyright, strLicense string, blnColor bool) string {
+func FormatCopyright(strAppYear, strCopyright, strLicense string,
+	blnColor bool) string {
 	NoneColored := "Copyright (c) %v %v, Licensed under %v\n"
 	Colored := ("\033[0;33mCopyright (c) \033[1;33m%v \033[1;34m%v" +
 		"\033[0;33m, Licensed under \033[1;33m%v\033[0m\n")
