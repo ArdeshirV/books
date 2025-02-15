@@ -11,7 +11,7 @@ func main() {
 	}()
 	PrintTitle()
 	bookName := "The Go programming language reference"
-	title := "\n    %sMy Practices about \"%s%s%s\" by M.Solati %sʕ◔ϖ◔ʔ%s\n\n"
+	title := "\n    %sMy Practices about \"%s%s%s\" %sʕ◔ϖ◔ʔ%s\n\n"
 	fmt.Printf(title, MAGENTA, BMAGENTA, bookName, MAGENTA, BGREEN, TEAL)
 
 	mainChapterOne()
@@ -55,7 +55,7 @@ func FormatTitle(strAppName, strAppDescription, strVersion string, blnColor bool
 func FormatCopyright(strAppYear, strCopyright, strLicense string, blnColor bool) string {
 	NoneColored := "Copyright (c) %v %v, Licensed under %v\n"
 	Colored := ("\033[0;33mCopyright (c) \033[1;33m%v \033[1;34m%v" +
-		"\033[0;33m, Licensed under \033[1;33m%v\033[0m\n")
+		"\033[0;33m, \033[1;33m%v\033[0m\n")
 	var strFormat string
 	if blnColor {
 		strFormat = Colored
