@@ -18,8 +18,41 @@ func main() {
 }
 
 func mainChapterOne() {
-	fmt.Println("  Chapter One: ")
+	fmt.Printf("  Chapter One: \n\n")
 
+	fmt.Println("Hello World")
+
+	fmt.Println(
+		`Hello, World!
+in multilines.`)
+
+	var age int
+	var name string
+	var movie string
+	var score float64
+	name = "Parmis"
+	age = 13
+	movie = "Hotel Transylvania"
+	score = 7
+	fmt.Println(name, "is a good student")
+	fmt.Println(name, "is", age, "years old")
+	fmt.Println(movie, name, "favorite movie score is", score)
+
+	age = 39
+	name = "اردشیر"
+	fmt.Println(name, "برنامه نویس کامپیوتر است و ", age, "سال سن دارد")
+
+	const (
+		a = iota + 1
+		b
+		c
+		_
+		e
+	)
+	fmt.Println(a, b, c, e)
+
+	var bit1 uint8 = 0b11101101
+	fmt.Printf("%b, %b", bit1, ^bit1)
 }
 
 func waiteForEnter() {
@@ -87,3 +120,10 @@ const (
 	BYELLOW  = "\033[1;33m"
 	BMAGENTA = "\033[1;35m"
 )
+
+// Problems in book
+// P29: sudo -C /usr/local -xzf flle-name --> tar -xvf file-name
+// P44: پیدا کردن کوحکترین عدد برای یافتن بزرکترین عدد
+// P55: true || false ==> false
+// P54: a < b, a < b
+//
