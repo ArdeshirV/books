@@ -52,12 +52,10 @@ in multilines.`)
 
 	var bit1 uint8 = 0b11101101
 	fmt.Printf("%b, %b\n", bit1, ^bit1)
-<<<<<<< HEAD
+
 	fmt.Println("استراحتِ مطلق")
-=======
 
 	// TODO: Add your codes here
->>>>>>> refs/remotes/origin/main
 }
 
 func waiteForEnter() {
