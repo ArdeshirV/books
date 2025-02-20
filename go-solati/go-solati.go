@@ -15,6 +15,7 @@ func main() {
 	fmt.Printf(title, MAGENTA, BMAGENTA, bookName, MAGENTA, BGREEN, TEAL)
 
 	mainChapterOne()
+	mainChapterTwo()
 }
 
 func mainChapterOne() {
@@ -55,6 +56,11 @@ in multilines.`)
 
 	fmt.Println("استراحتِ مطلق")
 	fmt.Println("دوباره استراحتِ مطلق")
+}
+
+func mainChapterTwo() {
+	fmt.Printf("  Chapter Two: \n\n")
+	fmt.Println("Hello World")
 }
 
 func PrintTitle() {
