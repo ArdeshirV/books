@@ -57,12 +57,6 @@ in multilines.`)
 	fmt.Println("دوباره استراحتِ مطلق")
 }
 
-func waiteForEnter() {
-	fmt.Printf("%s\nPress enter to quit.", NORMAL)
-	var tmp string
-	fmt.Scanf("%s", &tmp)
-}
-
 func PrintTitle() {
 	blnColor := true
 	strAppName := "go-solati"
