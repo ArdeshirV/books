@@ -54,8 +54,7 @@ in multilines.`)
 	fmt.Printf("%b, %b\n", bit1, ^bit1)
 
 	fmt.Println("استراحتِ مطلق")
-
-	// TODO: Add your codes here
+	fmt.Println("دوباره استراحتِ مطلق")
 }
 
 func waiteForEnter() {
