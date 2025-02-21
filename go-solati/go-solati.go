@@ -54,8 +54,7 @@ in multilines.`)
 	var bit1 uint8 = 0b11101101
 	fmt.Printf("%b, %b\n", bit1, ^bit1)
 
-	fmt.Println("استراحتِ مطلق")
-	fmt.Println("دوباره استراحتِ مطلق")
+	//
 }
 
 func mainChapterTwo() {
