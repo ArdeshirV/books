@@ -15,7 +15,7 @@ func main() {
 	fmt.Printf(title, MAGENTA, BMAGENTA, bookName, MAGENTA, BGREEN, TEAL)
 
 	mainChapterOne()
-	mainChapterTwo()
+	//mainChapterTwo()
 }
 
 func mainChapterOne() {
@@ -54,7 +54,12 @@ in multilines.`)
 	var bit1 uint8 = 0b11101101
 	fmt.Printf("%b, %b\n", bit1, ^bit1)
 
-	//
+	str1 := "Hello"
+	str2 := "World"
+	str3 := fmt.Sprintf("%s, %s!", str1, str2)
+	fmt.Println(str3)
+
+	// TODO: Add your code here:
 }
 
 func mainChapterTwo() {
