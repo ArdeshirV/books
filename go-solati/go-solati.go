@@ -22,8 +22,7 @@ func mainChapterOne() {
 	fmt.Printf("  Chapter One: \n\n")
 
 	fmt.Println("Hello World")
-	fmt.Println(
-		`Hello, World!
+	fmt.Println(`Hello, World!
 in multilines.`)
 
 	var age int
@@ -60,6 +59,7 @@ in multilines.`)
 	fmt.Println(str3)
 
 	// TODO: Add your code here://
+	fmt.Println("\003[0;35mاردشیر")
 }
 
 func mainChapterTwo() {
@@ -104,7 +104,7 @@ func FormatCopyright(strAppYear, strCopyright, strLicense string, blnColor bool)
 	return sprintf(strFormat, strAppYear, strCopyright, strLicense)
 }
 
-func sprintf(format string, args ...interface{}) string {
+func sprintf(format string, args ...any) string {
 	return fmt.Sprintf(format, args...)
 }
 
