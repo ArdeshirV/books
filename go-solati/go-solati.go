@@ -59,7 +59,6 @@ in multilines.`)
 	fmt.Println(str3)
 
 	// TODO: Add your code here://
-	fmt.Println("\003[0;35mاردشیر")
 }
 
 func mainChapterTwo() {
