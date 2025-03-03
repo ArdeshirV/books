@@ -59,6 +59,7 @@ in multilines.`)
 	fmt.Println(str3)
 
 	// TODO: Add your code here://
+	fmt.Printf("Hello Go\n")
 }
 
 func mainChapterTwo() {
