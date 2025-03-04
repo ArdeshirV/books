@@ -59,7 +59,53 @@ in multilines.`)
 	fmt.Println(str3)
 
 	// TODO: Add your code here://
-	fmt.Printf("Hello Go\n")
+	fmt.Printf("%v\n", str1 != str2)
+	const bit = 24
+	fmt.Println(bit >> 2)
+	const b1, b2 = 0b00110000, 0b00100001
+	fmt.Printf("%b\n", b1^b2)
+
+	gender := "male"
+	if gender == "female" {
+		fmt.Println("You are a woman")
+	} else {
+		fmt.Println("You are a man")
+	}
+
+	const day = 2
+	dayName := ""
+
+	switch day {
+	case 0:
+		dayName = "Saturday"
+	case 1:
+		dayName = "Sunday"
+	case 2:
+		dayName = "Monday"
+	case 3:
+		dayName = "Tuesday"
+	case 4:
+		dayName = "Wednsday"
+	case 5:
+		dayName = "Tursday"
+	case 6:
+		dayName = "Friday"
+	default:
+		dayName = "Xday"
+	}
+
+	arrDayNames := [7]string{"Saturday", "Sunday",
+		"Monday", "Tuesday", "Wednsday", "Friday"}
+
+	fmt.Println(dayName)
+	fmt.Println(arrDayNames[day])
+
+	goto next_statement
+	fmt.Println("Khameneee is a dirty pig")
+next_statement:
+	fmt.Println("Yeah we are here")
+
+	// Functions begins here:
 }
 
 func mainChapterTwo() {
@@ -132,4 +178,4 @@ const (
 // P44: پیدا کردن کوحکترین عدد برای یافتن بزرکترین عدد
 // P55: true || false ==> false
 // P54: a < b, a < b
-//
+// P79: تعریف تابغ به خط فارسی برعکس شده است
