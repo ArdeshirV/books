@@ -111,26 +111,41 @@ next_statement:
 	c2 := newCounter()
 	fmt.Println(c1())
 	fmt.Println(c1())
-	fmt.Println(c1())
-	fmt.Println(c1())
 	fmt.Println(c2())
 
-	expr := "2*3+4/2*(2-1)"
+	expr := "2*3+4/2*2-1"
 	operators := make(map[string]func(int, int) int)
 	operators["+"] = add
 	operators["-"] = sub
 	operators["/"] = div
 	operators["*"] = mul
 	res := 0
+	prev := 0
+	newExpr := ""
 	for i, v := range expr {
-		fmt.Printf("[%v]=%v, ", i, string(v))
-		res += i
+		item := string(v)
+		if item == "*" || item == "/" {
+			next := int(expr[i+1])
+			res = operators[item](prev, next)
+			newExpr += fmt.Sprintf("%d ", res)
+		}
+		prev = int(v)
 	}
-	fmt.Println(expr, res)
+	for i, v := range expr {
+		item := string(v)
+		if item == "+" || item == "-" {
+			next := int(expr[i+1])
+			res = operators[item](prev, next)
+			newExpr += fmt.Sprintf("%d ", res)
+		}
+		prev = int(v)
+	}
+	fmt.Println("\n", newExpr)
+
 }
 
 func eval(expr string) int {
-	return ""
+	return 0
 }
 
 func mul(a, b int) int {
