@@ -14,8 +14,14 @@ func main() {
 	title := "\n    %sMy Practices about \"%s%s%s\" %sʕ◔ϖ◔ʔ%s\n\n"
 	fmt.Printf(title, MAGENTA, BMAGENTA, bookName, MAGENTA, BGREEN, TEAL)
 
-	mainChapterOne()
+	//mainChapterOne()
 	//mainChapterTwo()
+	mainChapterThree()
+}
+
+func mainChapterThree() {
+	fmt.Printf("  Chapter Three: \n\n")
+	fmt.Println("Hello World")
 }
 
 func mainChapterOne() {
@@ -141,6 +147,9 @@ next_statement:
 		prev = int(v)
 	}
 	fmt.Println("\n", newExpr)
+
+	// Stone 3
+	fmt.Println("Stone 3")
 
 }
 
