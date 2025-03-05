@@ -106,6 +106,59 @@ next_statement:
 	fmt.Println("Yeah we are here")
 
 	// Functions begins here:
+	helloFunc()
+	c1 := newCounter()
+	c2 := newCounter()
+	fmt.Println(c1())
+	fmt.Println(c1())
+	fmt.Println(c1())
+	fmt.Println(c1())
+	fmt.Println(c2())
+
+	expr := "2*3+4/2*(2-1)"
+	operators := make(map[string]func(int, int) int)
+	operators["+"] = add
+	operators["-"] = sub
+	operators["/"] = div
+	operators["*"] = mul
+	res := 0
+	for i, v := range expr {
+		fmt.Printf("[%v]=%v, ", i, string(v))
+		res += i
+	}
+	fmt.Println(expr, res)
+}
+
+func eval(expr string) int {
+	return ""
+}
+
+func mul(a, b int) int {
+	return a * b
+}
+
+func div(b, a int) int {
+	return b / a
+}
+
+func add(a, b int) int {
+	return a + b
+}
+
+func sub(b, a int) int {
+	return b - a
+}
+
+func newCounter() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
+
+func helloFunc() {
+	fmt.Println("helloFunc")
 }
 
 func mainChapterTwo() {
