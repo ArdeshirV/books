@@ -22,6 +22,16 @@ func main() {
 func mainChapterThree() {
 	fmt.Printf("  Chapter Three: \n\n")
 	fmt.Println("Hello World")
+	// add a+b
+}
+
+func EvalMathematicExpr(expr string) float64 {
+	fmt.Print("Hello")
+	return 0.0
+}
+
+func integrate() {
+	fmt.Println("&&&")
 }
 
 func mainChapterOne() {
