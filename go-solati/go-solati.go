@@ -22,6 +22,13 @@ func main() {
 func mainChapterThree() {
 	fmt.Printf("  Chapter Three: \n\n")
 	fmt.Println("Hello World")
+	Integrate("Hello from mainChapterThree +/-")
+}
+
+// Integrate ax^2+bx+c
+func Integrate(expr string) float64 {
+	fmt.Println(expr)
+	return 0.0
 }
 
 func mainChapterOne() {
