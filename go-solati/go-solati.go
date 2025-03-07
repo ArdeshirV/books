@@ -22,6 +22,7 @@ func main() {
 func mainChapterThree() {
 	fmt.Printf("  Chapter Three: \n\n")
 	fmt.Println("Hello World")
+<<<<<<< HEAD
 	Integrate("Hello from mainChapterThree +/-")
 }
 
@@ -29,6 +30,18 @@ func mainChapterThree() {
 func Integrate(expr string) float64 {
 	fmt.Println(expr)
 	return 0.0
+=======
+	// add a+b
+}
+
+func EvalMathematicExpr(expr string) float64 {
+	fmt.Print("Hello")
+	return 0.0
+}
+
+func integrate() {
+	fmt.Println("&&&")
+>>>>>>> refs/remotes/origin/main
 }
 
 func mainChapterOne() {
