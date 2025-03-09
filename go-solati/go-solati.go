@@ -24,6 +24,33 @@ func mainChapterThree() {
 	fmt.Println("Hello World")
 	// add a+b
 }
+func addTwo(a, b int) int {
+	return a + b
+}
+# Find the maximum prime
+func findMaxPrime(n int) int {
+	maxPrime := 2
+	for i := 3; i <= n; i++ {
+		if isPrime(i) && i > maxPrime {
+			maxPrime = i
+		}
+	}
+	return maxPrime
+}
+
+func isPrime(n int) bool {
+	if n <= 1 {
+		return false
+	}
+	for i := 2; i*i <= n; i++ {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return true
+func rev(text string) string {
+	return text
+}
 
 func EvalMathematicExpr(expr string) float64 {
 	fmt.Print("Hello")
