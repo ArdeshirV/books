@@ -23,6 +23,7 @@ func mainChapterThree() {
 	fmt.Printf("  Chapter Three: \n\n")
 	fmt.Println("Hello World")
 	Integrate("Hello from mainChapterThree +/-")
+	// TODO: add your new code here
 }
 
 // Integrate ax^2+bx+c
@@ -30,10 +31,11 @@ func Integrate(expr string) float64 {
 	fmt.Println(expr)
 	return 0.0
 }
+
 func addTwo(a, b int) int {
 	return a + b
 }
-# Find the maximum prime
+
 func findMaxPrime(n int) int {
 	maxPrime := 2
 	for i := 3; i <= n; i++ {
@@ -54,6 +56,8 @@ func isPrime(n int) bool {
 		}
 	}
 	return true
+}
+
 func rev(text string) string {
 	return text
 }
