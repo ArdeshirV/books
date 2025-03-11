@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -30,6 +31,17 @@ func mainChapterThree() {
 func Integrate(expr string) float64 {
 	fmt.Println(expr)
 	return 0.0
+}
+
+// find n max of array
+func findNMax(arr []int, n int) []int {
+	if n > len(arr) {
+		n = len(arr)
+	}
+	result := make([]int, n)
+	copy(result, arr)
+	sort.Sort(sort.Reverse(sort.IntSlice(result)))
+	return result[:n]
 }
 
 func findMaxPrime(n int) int {
