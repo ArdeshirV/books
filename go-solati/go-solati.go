@@ -32,10 +32,6 @@ func Integrate(expr string) float64 {
 	return 0.0
 }
 
-func addTwo(a, b int) int {
-	return a + b
-}
-
 func findMaxPrime(n int) int {
 	maxPrime := 2
 	for i := 3; i <= n; i++ {
