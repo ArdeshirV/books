@@ -58,7 +58,23 @@ func Chapter10Goroutines() {
 	//stepTwo()
 	//stepThree()
 	//stepFour()
-	stepFive()
+	//stepFive()
+	testMinimumFunc()
+}
+
+func testMinimumFunc() {
+	list := []int{10, 20, 200, 2, 3, 9, 1, 12, 33, -1, 24, 34, -90, 20}
+	fmt.Printf("Minimum(%v) = %v\n", list, Minimum(list))
+}
+
+func Minimum(list []int) int {
+	var min int
+	for i := 0; i < len(list); i++ {
+		if i == 0 || min > list[i] {
+			min = list[i]
+		}
+	}
+	return min
 }
 
 func stepFive() {
