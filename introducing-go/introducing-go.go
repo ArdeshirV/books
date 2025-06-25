@@ -58,8 +58,8 @@ func Chapter10Goroutines() {
 	//stepTwo()
 	//stepThree()
 	//stepFour()
-	//stepFive()
-	testMinimumFunc()
+	stepFive()
+	//testMinimumFunc()
 }
 
 func testMinimumFunc() {
