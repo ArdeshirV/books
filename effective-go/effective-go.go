@@ -25,7 +25,7 @@ func main() {
 
 func stepOne() {
 	printTitle("stepOne")
-	fmt.Println("The output goes here. Here we try to practice Go programming language.")
+	fmt.Println("The output goes here.")
 }
 
 func stepTwo() {
