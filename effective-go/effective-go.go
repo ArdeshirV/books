@@ -20,12 +20,13 @@ func main() {
 	printMainTitle()
 
 	stepOne()
-	stepTwo()
+	//stepTwo()
 }
 
 func stepOne() {
 	printTitle("stepOne")
 	fmt.Println("The output goes here.")
+	fmt.Println("Hello World")
 }
 
 func stepTwo() {
