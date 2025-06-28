@@ -31,13 +31,93 @@ func stepTwo() {
 func stepOne() {
 	printTitle("stepOne")
 
+	fmt.Println()
 	const x, y = 1024, 2
 	const TestNum = x<<8 + y<<16
-	fmt.Printf("TestNum = %v\n", TestNum)
+	fmt.Printf("TestNum = %v\n\n", TestNum)
 
 	var ce CustomEntity
 	ce.SetOwner("Ardeshir")
-	fmt.Printf("ce.Owner() = %s\n", ce.Owner())
+	fmt.Printf("ce.Owner() = %s\n\n", ce.Owner())
+
+	someString := "اردشیر"
+	for i, v := range someString {
+		fmt.Printf("str[%d] = %#U, %v\n", i, v, v)
+	}
+	for i := 0; i < len(someString); i++ {
+		fmt.Printf("str[%d] = %#U, %v\n",
+			i, someString[i], someString[i])
+	}
+	fmt.Println()
+
+	m, n := 10, 20
+	fmt.Printf("m = %v, n = %v\n", m, n)
+	i, n := 100, 200
+	fmt.Printf("i = %v, n = %v\n\n", i, n)
+
+	fmt.Printf("'%v'\n", someString)
+	reversedSomeString := []byte(someString)
+	for i, j := 0, len(reversedSomeString)-1; i < j; i, j = i+1, j-1 {
+		reversedSomeString[i] = reversedSomeString[j]
+	}
+	fmt.Printf("'%v'\n", string(reversedSomeString))
+	reversed2 := []rune(someString)
+	for i, j := 0, len(reversed2)-1; i < j; i, j = i+1, j-1 {
+		reversed2[i] = reversed2[j]
+	}
+	fmt.Printf("'%v'\n", string(reversed2))
+	reversed3 := []rune(string(reversed2))
+	for i, j := 0, len(reversed3)-1; i < j; i, j = i+1, j-1 {
+		reversed3[i] = reversed3[j]
+	}
+	fmt.Printf("'%v'\n\n", string(reversed3))
+
+	fmt.Printf("ValueOf('A') = %d\n\n", 'A')
+
+	hexString := "A20D1"
+	fmt.Printf("Decimal('%v') = %v\n\n", hexString, hex2Decimal(hexString))
+
+	// Type Switch
+	t := any(unhex)
+	// The 'v' has different type in each case
+	switch v := t.(type) {
+	case bool:
+		fmt.Println("bool\n")
+	default:
+		fmt.Printf("type(t) = %T\n\n", v)
+	}
+
+	
+}
+
+func hex2Decimal(hexString string) int {
+	index, result := 1, 0
+	reversedHexString := []byte(reverse(hexString))
+	for _, c := range reversedHexString {
+		result += int(unhex(c)) * index
+		index *= 16
+	}
+	return result
+}
+
+func reverse(s string) string {
+    runes := []rune(s) // Convert to rune slice to handle Unicode
+    for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+        runes[i], runes[j] = runes[j], runes[i]
+    }
+    return string(runes)
+}
+
+func unhex(c byte) byte {
+	switch {
+	case '0' <= c && c <= '9':
+		return c - '0'
+	case 'a' <= c && c <= 'f':
+		return c - 'a' + 10
+	case 'A' <= c && c <= 'F':
+		return c - 'A' + 10
+	}
+	return 0
 }
 
 type CustomEntity struct {
