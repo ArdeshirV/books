@@ -23,14 +23,13 @@ func main() {
 	//stepTwo()
 }
 
-func AddTwoNumbers
+func stepTwo() {
+	printTitle("stepTwo")
+	fmt.Println("The output of stepTwo also goes here.")
+}
 
 func stepOne() {
 	printTitle("stepOne")
 	fmt.Println("The output goes here.")
-}
-
-func stepTwo() {
-	printTitle("stepTwo")
-	fmt.Println("The output of stepTwo also goes here.")
+	
 }
