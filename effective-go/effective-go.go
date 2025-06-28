@@ -30,6 +30,8 @@ func stepTwo() {
 
 func stepOne() {
 	printTitle("stepOne")
-	fmt.Println("The output goes here.")
-	
+
+	const x, y = 1024, 2
+	const TestNum = x<<8 + y<<16
+	fmt.Printf("TestNum = %v\n", TestNum)
 }
