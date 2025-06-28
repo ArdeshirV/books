@@ -37,7 +37,7 @@ func stepOne() {
 
 	var ce CustomEntity
 	ce.SetOwner("Ardeshir")
-	fmt.Printf("ce.Owner() = %s\n", ce.Owner)
+	fmt.Printf("ce.Owner() = %s\n", ce.Owner())
 }
 
 type CustomEntity struct {
