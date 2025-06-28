@@ -34,4 +34,20 @@ func stepOne() {
 	const x, y = 1024, 2
 	const TestNum = x<<8 + y<<16
 	fmt.Printf("TestNum = %v\n", TestNum)
+
+	var ce CustomEntity
+	ce.SetOwner("Ardeshir")
+	fmt.Printf("ce.Owner() = %s\n", ce.Owner)
+}
+
+type CustomEntity struct {
+	owner string
+}
+
+func (ce *CustomEntity) Owner() string {
+	return ce.owner
+}
+
+func (ce *CustomEntity) SetOwner(owner string) {
+	ce.owner = owner
 }
