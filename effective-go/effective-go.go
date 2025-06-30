@@ -24,19 +24,19 @@ func main() {
 }
 
 func stepTwo() {
-	printTitle("stepTwo")
+	printTitle("stepTwo\n")
+
 	fmt.Printf("%c, %c\n", 'A', 65)
 	fmt.Println("string(65) = ", string(65))
 	fmt.Println("rune(65) = ", rune(65))
-	fmt.Println("byte(65) = ", byte(65))
+	fmt.Println("byte(65) = ", byte(65), "\n")
 
 	
 }
 
 func stepOne() {
-	printTitle("stepOne")
+	printTitle("stepOne\n")
 
-	fmt.Println()
 	const x, y = 1024, 2
 	const TestNum = x<<8 + y<<16
 	fmt.Printf("TestNum = %v\n\n", TestNum)
