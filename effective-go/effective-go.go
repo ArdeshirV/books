@@ -19,13 +19,18 @@ func main() {
 	}()
 	printMainTitle()
 
-	stepOne()
-	//stepTwo()
+	//stepOne()
+	stepTwo()
 }
 
 func stepTwo() {
 	printTitle("stepTwo")
-	fmt.Println("The output of stepTwo also goes here.")
+	fmt.Printf("%c, %c\n", 'A', 65)
+	fmt.Println("string(65) = ", string(65))
+	fmt.Println("rune(65) = ", rune(65))
+	fmt.Println("byte(65) = ", byte(65))
+
+	
 }
 
 func stepOne() {
@@ -75,7 +80,8 @@ func stepOne() {
 	fmt.Printf("ValueOf('A') = %d\n\n", 'A')
 
 	hexString := "A20D1"
-	fmt.Printf("Decimal('%v') = %v\n\n", hexString, hex2Decimal(hexString))
+	fmt.Printf("Decimal('%v') = %v\n", hexString, hex2Decimal(hexString))
+	fmt.Printf("Decimal2('%v') = %v\n\n", hexString, hex2Decimal2(hexString))
 
 	// Type Switch
 	t := any(unhex)
@@ -86,8 +92,14 @@ func stepOne() {
 	default:
 		fmt.Printf("type(t) = %T\n\n", v)
 	}
+}
 
-	
+func hex2Decimal2(hexString string) (number int) {
+	for _, c := range []byte(hexString) {
+		number *= 16
+		number += int(unhex(c))
+	}
+	return
 }
 
 func hex2Decimal(hexString string) int {
@@ -101,7 +113,7 @@ func hex2Decimal(hexString string) int {
 }
 
 func reverse(s string) string {
-    runes := []rune(s) // Convert to rune slice to handle Unicode
+    runes := []rune(s)
     for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
         runes[i], runes[j] = runes[j], runes[i]
     }
