@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func printTitle(title string) {
@@ -20,7 +19,6 @@ func main() {
 	}()
 	printMainTitle()
 
-	//stepOne()
 	stepTwo()
 }
 
@@ -28,11 +26,11 @@ func stepTwo() {
 	printTitle("stepTwo\n")
 
 	fmt.Printf("%c, %c\n", 'A', 65)
-	fmt.Println("string(65) = ", string(65))
-	fmt.Println("rune(65) = ", rune(65))
-	fmt.Println("byte(65) = ", byte(65), "\n")
+	fmt.Println("string(65) =", string(rune(65)))
+	fmt.Println("rune(65) =", rune(65))
+	fmt.Printf("byte(65) = %v\n\n", byte(65))
 
-	
+	fmt.Println("")
 }
 
 func stepOne() {
@@ -89,7 +87,7 @@ func stepOne() {
 	// The 'v' has different type in each case
 	switch v := t.(type) {
 	case bool:
-		fmt.Println("bool\n")
+		fmt.Printf("bool\n\n")
 	default:
 		fmt.Printf("type(t) = %T\n\n", v)
 	}
