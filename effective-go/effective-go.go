@@ -32,7 +32,9 @@ func stepTwo() {
 
 	var c CustomEntity
 	c.SetOwner("Someone")
-	fmt.Println(c)
+	fmt.Printf("%v\n\n", c)
+
+	
 }
 
 func stepOne() {
