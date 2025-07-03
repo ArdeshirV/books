@@ -31,6 +31,8 @@ func stepTwo() {
 	fmt.Printf("byte(65) = %v\n\n", byte(65))
 
 	//
+	c := CustomEntity{ "Someone" }
+	fmt.Println(c)
 }
 
 func stepOne() {
@@ -141,4 +143,8 @@ func (ce *CustomEntity) Owner() string {
 
 func (ce *CustomEntity) SetOwner(owner string) {
 	ce.owner = owner
+}
+
+func (ce CustomEntity) String() string {
+	return ce.owner
 }
