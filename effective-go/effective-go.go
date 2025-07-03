@@ -30,8 +30,8 @@ func stepTwo() {
 	fmt.Println("rune(65) =", rune(65))
 	fmt.Printf("byte(65) = %v\n\n", byte(65))
 
-	//
-	c := CustomEntity{ "Someone" }
+	var c CustomEntity
+	c.SetOwner("Someone")
 	fmt.Println(c)
 }
 
