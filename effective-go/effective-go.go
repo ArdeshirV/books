@@ -34,6 +34,22 @@ func stepTwo() {
 	c.SetOwner("Someone")
 	fmt.Printf("%v\n\n", c)
 
+	c1 := new(CustomEntity)
+	c1.SetOwner("user")
+	c2 := &CustomEntity{owner: "user"}
+	fmt.Printf("c1 = %v\nc2 = %v\n\n", c1, c2)
+
+	const (
+		Enone  = 5
+		Eio    = 1
+		Einval = 2
+	)
+	a := [...]string{Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
+	s := []string{Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
+	m := map[int]string{Enone: "no error", Eio: "Eio", Einval: "invalid argument"}
+	fmt.Printf("T(a) = %T, a = %v\nT(s) = %T, s = %v\nT(m) = %T, m = %v\n\n",
+		a, a, s, s, m, m)
+
 	
 }
 
@@ -116,11 +132,11 @@ func hex2Decimal(hexString string) int {
 }
 
 func reverse(s string) string {
-    runes := []rune(s)
-    for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
-        runes[i], runes[j] = runes[j], runes[i]
-    }
-    return string(runes)
+	runes := []rune(s)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
 }
 
 func unhex(c byte) byte {
