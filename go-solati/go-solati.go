@@ -10,10 +10,7 @@ func main() {
 	defer func() {
 		//waiteForEnter()
 	}()
-	PrintTitle()
-	bookName := "The Go programming language reference"
-	title := "\n    %sMy Practices about \"%s%s%s\" %sʕ◔ϖ◔ʔ%s\n\n"
-	fmt.Printf(title, MAGENTA, BMAGENTA, bookName, MAGENTA, BGREEN, TEAL)
+	PerformTitle()
 
 	//mainChapterOne()
 	//mainChapterTwo()
@@ -208,10 +205,6 @@ next_statement:
 
 }
 
-func eval(expr string) int {
-	return 0
-}
-
 func mul(a, b int) int {
 	return a * b
 }
@@ -284,6 +277,13 @@ func FormatCopyright(strAppYear, strCopyright, strLicense string, blnColor bool)
 
 func sprintf(format string, args ...any) string {
 	return fmt.Sprintf(format, args...)
+}
+
+func PerformTitle() {
+	PrintTitle()
+	bookName := "The Go programming language reference"
+	title := "\n    %sMy Practices about \"%s%s%s\" %sʕ◔ϖ◔ʔ%s\n\n"
+	fmt.Printf(title, MAGENTA, BMAGENTA, bookName, MAGENTA, BGREEN, TEAL)
 }
 
 const (
