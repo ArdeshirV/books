@@ -34,9 +34,7 @@ func stepTwo() {
 	c.SetOwner("Someone")
 	fmt.Printf("%v\n\n", c)
 
-	r := 'X'
-	var s fmt.State
-	fmt.Println(fmt.FormatString(s, r))
+	
 }
 
 func stepOne() {
