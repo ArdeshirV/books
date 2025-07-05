@@ -50,6 +50,12 @@ func stepTwo() {
 	fmt.Printf("T(a) = %T, a = %v\nT(s) = %T, s = %v\nT(m) = %T, m = %v\n\n",
 		a, a, s, s, m, m)
 
+	arr1 := []int{10, 20, 30}
+	arr2 := arr1
+	arr2[0] = 1000
+	arr1[1] = 100
+	fmt.Printf("arr1 = %v, arr2 = %v\n\n", arr1, arr2)
+
 	
 }
 
