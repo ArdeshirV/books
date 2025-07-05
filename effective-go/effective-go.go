@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func printTitle(title string) {
@@ -36,7 +37,17 @@ func stepThree() {
 	m2 := make(map[string]int, 0)
 	m2["Hi"] = 100
 	fmt.Println(m2, ", m1[\"Guten Morgen\"] = ", m1["Guten Morgen"])
-	
+
+	fmt.Println("User =", os.Getenv("USER"))
+
+	var c CustomEntity
+	c.SetOwner("Ardeshir")
+	fmt.Fprint(&c, " Ki Chihr Hach Yazataan")
+	fmt.Printf("c: %v\n", c)
+}
+
+func init() {
+	fmt.Println("effective-go.init() ...")
 }
 
 func stepTwo() {
@@ -72,6 +83,10 @@ func stepTwo() {
 	arr2[0] = 1000
 	arr1[1] = 100
 	fmt.Printf("arr1 = %v, arr2 = %v\n\n", arr1, arr2)
+
+	fmt.Printf("c: %v\n", c)
+	fmt.Fprint(&c, " Hello")
+	fmt.Printf("c: %v\n", c)
 }
 
 func stepOne() {
@@ -176,7 +191,12 @@ type CustomEntity struct {
 	owner string
 }
 
-func (ce *CustomEntity) Owner() string {
+func (ce *CustomEntity) Write(data []byte) (int, error) {
+	ce.owner += string(data)
+	return len(data), nil
+}
+
+func (ce CustomEntity) Owner() string {
 	return ce.owner
 }
 
