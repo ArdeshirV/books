@@ -25,7 +25,17 @@ func main() {
 
 func stepThree() {
 	printTitle("stepThree\n")
-	
+	someSlice := []string{"Hi", "Hallo", "Guten Tag"}
+	fmt.Println(someSlice)
+	anotherSlice := [2][3]string{{"One", "Two", "Three"}, {"Yek", "Do", "Se"}}
+	fmt.Println(anotherSlice)
+
+	m1 := make(map[string]int, 10)
+	m1["Hello"] = 10
+	fmt.Println(m1)
+	m2 := make(map[string]int, 0)
+	m2["Hi"] = 100
+	fmt.Println(m2)
 }
 
 func stepTwo() {
