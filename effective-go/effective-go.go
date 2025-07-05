@@ -18,8 +18,14 @@ func main() {
 		fmt.Print("\033[0m")
 	}()
 	printMainTitle()
+	//stepOne()
+	//stepTwo()
+	stepThree()
+}
 
-	stepTwo()
+func stepThree() {
+	printTitle("stepThree\n")
+	
 }
 
 func stepTwo() {
@@ -55,8 +61,6 @@ func stepTwo() {
 	arr2[0] = 1000
 	arr1[1] = 100
 	fmt.Printf("arr1 = %v, arr2 = %v\n\n", arr1, arr2)
-
-	
 }
 
 func stepOne() {
