@@ -35,7 +35,8 @@ func stepThree() {
 	fmt.Println(m1)
 	m2 := make(map[string]int, 0)
 	m2["Hi"] = 100
-	fmt.Println(m2)
+	fmt.Println(m2, ", m1[\"Guten Morgen\"] = ", m1["Guten Morgen"])
+	
 }
 
 func stepTwo() {
