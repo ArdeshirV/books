@@ -43,7 +43,20 @@ func stepThree() {
 	var c CustomEntity
 	c.SetOwner("Ardeshir")
 	fmt.Fprint(&c, " Ki Chihr Hach Yazataan")
-	fmt.Printf("c: %v\n", c)
+	fmt.Printf("c: %v\n\n", c)
+
+	IsString("Hello, World!")
+	IsString(190.003)
+	fmt.Println()
+
+}
+
+func IsString(value any) {
+	if str, ok := value.(string); ok {
+		fmt.Printf("string value is: %q\n", str)
+	} else {
+		fmt.Printf("value is not a string\n")
+	}
 }
 
 func init() {
