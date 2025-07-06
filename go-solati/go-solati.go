@@ -1,4 +1,4 @@
-// go-solati.go: My practices about "The Go programming language reference"
+// go-solati.go: My practices about "The Go programming language reference by Solati"
 package main
 
 import (
@@ -6,6 +6,7 @@ import (
 	"sort"
 )
 
+// Main entry point
 func main() {
 	defer func() {
 		//waiteForEnter()
@@ -17,6 +18,7 @@ func main() {
 	mainChapterThree()
 }
 
+// Chapter three
 func mainChapterThree() {
 	fmt.Printf("  Chapter Three: \n\n")
 	fmt.Println("Hello World")

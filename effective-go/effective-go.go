@@ -21,7 +21,19 @@ func main() {
 	printMainTitle()
 	//stepOne()
 	//stepTwo()
-	stepThree()
+	//stepThree()
+	stepFour()
+}
+
+func stepFour() {
+	printTitle("stepFour\n")
+
+	fileName := "/home/asohishn/Documents/Projects/Go/books/effective-go/effective-go.go"
+	if fileInfo, err := os.Stat(fileName); err == nil {
+		fmt.Printf("fileInfo: %#v\n\n", fileInfo)
+	}
+
+	
 }
 
 func stepThree() {
