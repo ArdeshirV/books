@@ -33,7 +33,6 @@ func stepFour() {
 		fmt.Printf("fileInfo: %#v\n\n", fileInfo)
 	}
 
-	
 }
 
 func stepThree() {
