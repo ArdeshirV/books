@@ -35,12 +35,13 @@ func stepFour() {
 
 	c := make(chan int)
 	go func() {
-		fmt.Println("First")
+		fmt.Println("First - in Goroutine")
 		c <- 1
 	}()
 	fmt.Println("Second - idle time")
 	<-c
-	fmt.Println("Third")
+	fmt.Printf("Third - in Main thread\n\n")
+
 }
 
 func stepThree() {
