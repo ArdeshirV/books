@@ -33,6 +33,14 @@ func stepFour() {
 		fmt.Printf("fileInfo: %#v\n\n", fileInfo)
 	}
 
+	c := make(chan int)
+	go func() {
+		fmt.Println("First")
+		c <- 1
+	}()
+	fmt.Println("Second - idle time")
+	<-c
+	fmt.Println("Third")
 }
 
 func stepThree() {
