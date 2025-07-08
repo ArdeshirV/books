@@ -31,6 +31,27 @@ func stepFive() {
 
 }
 
+// A buffered channel can be used like a semaphore, for instance to limit throughput.
+type Request int
+
+const MaxOutstanding = 20
+
+func process(data any) {
+}
+
+func handle(queue chan *Request) {
+	for r := range queue {
+		process(r)
+	}
+}
+
+func Serve(clientRequests chan *Request, quit chan bool) {
+	for range MaxOutstanding {
+		go handle(clientRequests)
+	}
+	<-quit
+}
+
 func stepFour() {
 	printTitle("stepFour\n")
 
