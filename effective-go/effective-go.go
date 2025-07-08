@@ -22,7 +22,13 @@ func main() {
 	//stepOne()
 	//stepTwo()
 	//stepThree()
-	stepFour()
+	//stepFour()
+	stepFive()
+}
+
+func stepFive() {
+	printTitle("stepFive\n\n")
+
 }
 
 func stepFour() {
@@ -45,7 +51,6 @@ func stepFour() {
 	fmt.Println("Second - idle time")
 	<-c
 	fmt.Printf("Third - in Main thread\n\n")
-
 }
 
 func stepThree() {
