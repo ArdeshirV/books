@@ -29,19 +29,35 @@ func main() {
 func stepFive() {
 	printTitle("stepFive\n\n")
 
+	useSemaphore()
 }
 
 // A buffered channel can be used like a semaphore, for instance to limit throughput.
-type Request int
+func useSemaphore() {
+	clientRequests := make(chan Request, MaxOutstanding)
+	request := &Request{args: []int{3, 4, 5}, f: sum, resultChan: make(chan int)}
+	clientRequests <- *request
+	fmt.Printf("Answer: %d\n", <-request.resultChan)
+}
 
 const MaxOutstanding = 20
 
-func process(data any) {
+type Request struct {
+	args       []int
+	f          func([]int) int
+	resultChan chan int
+}
+
+func sum(a []int) (s int) {
+	for _, v := range a {
+		s += v
+	}
+	return
 }
 
 func handle(queue chan *Request) {
 	for r := range queue {
-		process(r)
+		r.resultChan <- r.f(r.args)
 	}
 }
 
