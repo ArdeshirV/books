@@ -36,6 +36,10 @@ func stepFour() {
 	c := make(chan int)
 	go func() {
 		fmt.Println("First - in Goroutine")
+		for i := 0; i < 20; i++ {
+			fmt.Print(i, " ")
+		}
+		fmt.Println()
 		c <- 1
 	}()
 	fmt.Println("Second - idle time")
