@@ -34,8 +34,8 @@ func stepFive() {
 
 // A buffered channel can be used like a semaphore, for instance to limit throughput.
 func useSemaphore() {
-	clientRequests := make(chan *Request, MaxOutstanding)
 	request := &Request{args: []int{3, 4, 5}, f: sum, resultChan: make(chan int)}
+	clientRequests := make(chan *Request, MaxOutstanding)
 	clientRequests <- request
 	isFinished := make(chan bool)
 	Serve(&clientRequests, isFinished)
@@ -58,15 +58,13 @@ func sum(a []int) (s int) {
 	return
 }
 
-func handle(queue *chan *Request) {
-	for r := range *queue {
-		r.resultChan <- r.f(r.args)
-	}
+func handle(r *Request) {
+	r.resultChan <- r.f(r.args)
 }
 
 func Serve(clientRequests *chan *Request, quit chan bool) {
-	for range len(*clientRequests) {
-		go handle(clientRequests)
+	for req := range *clientRequests {
+		go handle(req)
 	}
 	<-quit
 }
