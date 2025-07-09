@@ -34,9 +34,12 @@ func stepFive() {
 
 // A buffered channel can be used like a semaphore, for instance to limit throughput.
 func useSemaphore() {
-	clientRequests := make(chan Request, MaxOutstanding)
+	clientRequests := make(chan *Request, MaxOutstanding)
 	request := &Request{args: []int{3, 4, 5}, f: sum, resultChan: make(chan int)}
-	clientRequests <- *request
+	clientRequests <- request
+	isFinished := make(chan bool)
+	Serve(&clientRequests, isFinished)
+	<-isFinished
 	fmt.Printf("Answer: %d\n", <-request.resultChan)
 }
 
@@ -55,14 +58,14 @@ func sum(a []int) (s int) {
 	return
 }
 
-func handle(queue chan *Request) {
-	for r := range queue {
+func handle(queue *chan *Request) {
+	for r := range *queue {
 		r.resultChan <- r.f(r.args)
 	}
 }
 
-func Serve(clientRequests chan *Request, quit chan bool) {
-	for range MaxOutstanding {
+func Serve(clientRequests *chan *Request, quit chan bool) {
+	for range len(*clientRequests) {
 		go handle(clientRequests)
 	}
 	<-quit
@@ -79,7 +82,7 @@ func stepFour() {
 	c := make(chan int)
 	go func() {
 		fmt.Println("First - in Goroutine")
-		for i := 0; i < 20; i++ {
+		for i := range 20 {
 			fmt.Print(i, " ")
 		}
 		fmt.Println()
