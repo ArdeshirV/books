@@ -23,7 +23,14 @@ func main() {
 	//stepTwo()
 	//stepThree()
 	//stepFour()
-	stepFive()
+	//stepFive()
+	stepSix()
+}
+
+func stepSix() {
+	printTitle("stepSix\n\n")
+
+	fmt.Printf("Hello, World!\n\n")
 }
 
 func stepFive() {
