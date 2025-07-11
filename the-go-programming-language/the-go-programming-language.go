@@ -21,7 +21,11 @@ func chapterOne() {
 }
 
 func chapterTwo() {
-	printTitle("  Chapter One: \n")
+	printTitle("  Chapter Two: \n")
+}
+
+func chapterThree() {
+	printTitle("  Chapter Three: \n")
 }
 
 func PrintTitle() {
