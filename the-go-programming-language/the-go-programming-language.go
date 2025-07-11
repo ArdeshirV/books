@@ -32,6 +32,10 @@ func chapter4() {
 	printTitle("  Chapter 4: \n")
 }
 
+func chapter5() {
+	printTitle("  Chapter 5: \n")
+}
+
 func PrintTitle() {
 	blnColor := true
 	strAppName := "the-go-programming-language"
