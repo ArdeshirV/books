@@ -34,7 +34,7 @@ func stepSix() {
 }
 
 func stepFive() {
-	printTitle("stepFive\n\n")
+	printTitle("stepFive \n\n")
 
 	useSemaphore()
 }
