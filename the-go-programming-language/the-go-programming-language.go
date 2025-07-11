@@ -18,7 +18,7 @@ func main() {
 
 func chapter1() {
 	printTitle("  Chapter 1:\n")
-	//123
+	//1234
 }
 
 func chapter2() {
