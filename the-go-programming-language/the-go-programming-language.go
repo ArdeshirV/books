@@ -20,62 +20,6 @@ func chapter1() {
 	printTitle("  Chapter 1:\n")
 }
 
-func chapter2() {
-	printTitle("  Chapter 2:\n")
-}
-
-func chapter3() {
-	printTitle("  Chapter 3:\n")
-}
-
-func chapter4() {
-	printTitle("  Chapter 4:\n")
-}
-
-func chapter5() {
-	printTitle("  Chapter 5:\n")
-}
-
-func chapter6() {
-	printTitle("  Chapter 6:\n")
-}
-
-func chapter7() {
-	printTitle("  Chapter 7:\n")
-}
-
-func chapter8() {
-	printTitle("  Chapter 8:\n")
-}
-
-func chapter9() {
-	printTitle("  Chapter 9:\n")
-}
-
-func chapter10() {
-	printTitle("  Chapter 10:\n")
-}
-
-func chapter11() {
-	printTitle("  Chapter 11:\n")
-}
-
-func chapter12() {
-	printTitle("  Chapter 12:\n")
-}
-
-func chapter13() {
-	printTitle("  Chapter 13:\n")
-}
-
-func chapter14() {
-	printTitle("  Chapter 14:\n")
-}
-
-func chapter15() {
-	printTitle("  Chapter 15:\n")
-}
-
 func PrintTitle() {
 	blnColor := true
 	strAppName := "the-go-programming-language"
