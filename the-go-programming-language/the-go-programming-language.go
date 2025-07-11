@@ -17,7 +17,7 @@ func main() {
 }
 
 func chapterOne() {
-	fmt.Println("  Chapter One: ")
+	printTitle("  Chapter One: ")
 
 	
 }
@@ -67,6 +67,10 @@ func PerformTitle() {
 	PrintTitle()
 	title := "\n    %sThe Go Programming Language %sʕ◔ϖ◔ʔ%s\n\n"
 	fmt.Printf(title, BMAGENTA, BGREEN, TEAL)
+}
+
+func printTitle(title string) {
+	fmt.Printf("\n  \033[1;36m%s\033[0;36m\n", title)
 }
 
 const (
