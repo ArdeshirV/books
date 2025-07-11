@@ -13,65 +13,11 @@ func main() {
 		//fmt.Scanf("%s", &tmp)
 	}()
 	PerformTitle()
-	chapterOne()
+	chapter1()
 }
 
-func chapterOne() {
-	printTitle("  Chapter One: \n")
-
-	//0
-}
-
-func chapterTwo() {
-	printTitle("  Chapter Two: \n")
-}
-
-func chapterThree() {
-	printTitle("  Chapter Three: \n")
-}
-
-func chapterFour() {
-	printTitle("  Chapter Four: \n")
-}
-
-func chapterFive() {
-	printTitle("  Chapter Five: \n")
-}
-
-func chapterSix() {
-	printTitle("  Chapter Six: \n")
-}
-
-func chapterSeven() {
-	printTitle("  Chapter Seven: \n")
-}
-
-func chapterEight() {
-	printTitle("  Chapter Eight: \n")
-}
-
-func chapterNine() {
-	printTitle("  Chapter Nine: \n")
-}
-
-func chapterTen() {
-	printTitle("  Chapter Ten: \n")
-}
-
-func chapterEleven() {
-	printTitle("  Chapter Eleven: \n")
-}
-
-func chapterTwelve() {
-	printTitle("  Chapter Twelve: \n")
-}
-
-func chapterThirteen() {
-	printTitle("  Chapter Thirteen: \n")
-}
-
-func chapterFourteen() {
-	printTitle("  Chapter Fourteen: \n")
+func chapter1() {
+	printTitle("  Chapter 1: \n")
 }
 
 func PrintTitle() {
