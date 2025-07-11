@@ -18,6 +18,7 @@ func main() {
 
 func chapter1() {
 	printTitle("  Chapter 1:\n")
+	//
 }
 
 func chapter2() {
