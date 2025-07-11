@@ -1,6 +1,6 @@
 package main
 // book - The Go Programming Language
-//0123456789
+//01234567890
 
 import (
 	"fmt"
