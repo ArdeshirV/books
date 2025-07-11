@@ -17,35 +17,7 @@ func main() {
 }
 
 func chapter1() {
-	printTitle("  Chapter 1: \n")
-}
-
-func chapter2() {
-	printTitle("  Chapter 2: \n")
-}
-
-func chapter3() {
-	printTitle("  Chapter 3: \n")
-}
-
-func chapter4() {
-	printTitle("  Chapter 4: \n")
-}
-
-func chapter5() {
-	printTitle("  Chapter 1: \n")
-}
-
-func chapter6() {
-	printTitle("  Chapter 6: \n")
-}
-
-func chapter7() {
-	printTitle("  Chapter 7: \n")
-}
-
-func chapter8() {
-	printTitle("  Chapter 8: \n")
+	printTitle("  Chapter 1:\n")
 }
 
 func PrintTitle() {
