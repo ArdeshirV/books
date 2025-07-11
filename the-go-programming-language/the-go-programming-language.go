@@ -57,7 +57,11 @@ func chapterTen() {
 }
 
 func chapterEleven() {
-	printTitle("  Chapter One: \n")
+	printTitle("  Chapter Eleven: \n")
+}
+
+func chapterTwelve() {
+	printTitle("  Chapter Twelve: \n")
 }
 
 func PrintTitle() {
