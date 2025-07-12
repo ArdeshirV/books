@@ -1,6 +1,6 @@
 package main
-
 // book - The Go Programming Language
+//01234567890
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ func main() {
 
 func chapter1() {
 	printTitle("  Chapter 1:\n")
-	//12345678901
+	//
 }
 
 func chapter2() {
